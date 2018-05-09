@@ -1,0 +1,31 @@
+# import Project from "./generated/prisma.graphql"
+# import Stage from "./generated/prisma.graphql"
+# import Event from "./generated/prisma.graphql"
+
+type Query {
+  projects: [Project!]!
+  project(id: String!): Project!
+  stage: [Stage!]!
+  event: [Event!]!
+  me: User
+}
+
+type Mutation {
+  signup(email: String!, password: String!, name: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+}
+
+type Subscription {
+  projectSubscription: ProjectSubscriptionPayload!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  name: String!
+}

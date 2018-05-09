@@ -1,0 +1,30 @@
+type Project {
+  id: ID! @unique
+  title: String!
+  stages: [Stage!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Stage {
+  id: ID! @unique
+  title: String!
+  project: Project!
+  events: [Event!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Event {
+  id: ID! @unique
+  title: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type User {
+  id: ID! @unique
+  email: String! @unique
+  password: String!
+  name: String!
+}
